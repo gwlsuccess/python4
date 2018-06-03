@@ -22,3 +22,12 @@ class Config:
     SESSION_REDIS = StrictRedis(host=REDIS_HOST, port=REDIS_PORT)
     # 指定session的过期时间1天
     PERMANENT_SESSION_LIFETIME = 86400
+class developmentConfig(Config):
+    DEBUG = True
+class productionConfig(Config):
+    DEBUG = False
+
+my_dict={
+    'development':developmentConfig,
+    'production':productionConfig
+}
